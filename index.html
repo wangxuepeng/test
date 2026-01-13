@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date Difference Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 40px auto;
+    }
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Date Difference Calculator</h2>
+
+  <label>Start Date</label>
+  <input type="date" id="startDate">
+
+  <label>End Date</label>
+  <input type="date" id="endDate">
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      var start = new Date(document.getElementById("startDate").value);
+      var end = new Date(document.getElementById("endDate").value);
+
+      if (isNaN(start) || isNaN(end)) {
+        document.getElementById("result").innerText = "Please select both dates.";
+        return;
+      }
+
+      var diffTime = Math.abs(end - start);
+      var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      document.getElementById("result").innerText =
+        "Difference: " + diffDays + " day(s)";
+    }
+  </script>
+
+</body>
+</html>
