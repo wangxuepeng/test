@@ -1,56 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Date Difference Calculator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 400px;
-      margin: 40px auto;
-    }
-    input, button {
-      width: 100%;
-      padding: 8px;
-      margin-top: 10px;
-    }
-    #result {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CounterApp</title>
+    <base href="/counterapp/" />
+    <link href="_framework/dotnet.jac59vcqfn.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-hW3ZUnkhDXChJg0bYODi8McHxgMhXP7+269nZTnbNZ4=" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link href="CounterApp.styles.css" rel="stylesheet" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.66stpp682q.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.jac59vcqfn.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.87vtjjdetb.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.2tx45g8lli.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/blazor.webassembly.66stpp682q.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
+    "./_framework/blazor.webassembly.js": "sha256-3lCWrko3zwspV40aQhs2S/IMkRSarnHRKIdkHhuXIBA=",
+    "./_framework/dotnet.jac59vcqfn.js": "sha256-hW3ZUnkhDXChJg0bYODi8McHxgMhXP7+269nZTnbNZ4=",
+    "./_framework/dotnet.js": "sha256-hW3ZUnkhDXChJg0bYODi8McHxgMhXP7+269nZTnbNZ4=",
+    "./_framework/dotnet.native.87vtjjdetb.js": "sha256-zE11fbcG2CeLl1Zi+NJgMOfWpdjuUWNte+icrtAO58I=",
+    "./_framework/dotnet.native.js": "sha256-zE11fbcG2CeLl1Zi+NJgMOfWpdjuUWNte+icrtAO58I=",
+    "./_framework/dotnet.runtime.2tx45g8lli.js": "sha256-2lZh9yO0fnzm3Xt7yV+Kox3DH3nK7L8hDhm84VT1xco=",
+    "./_framework/dotnet.runtime.js": "sha256-2lZh9yO0fnzm3Xt7yV+Kox3DH3nK7L8hDhm84VT1xco="
+  }
+}</script>
 </head>
+
 <body>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
 
-  <h2>Date Difference Calculator</h2>
-
-  <label>Start Date</label>
-  <input type="date" id="startDate">
-
-  <label>End Date</label>
-  <input type="date" id="endDate">
-
-  <button onclick="calculate()">Calculate</button>
-
-  <div id="result"></div>
-
-  <script>
-    function calculate() {
-      var start = new Date(document.getElementById("startDate").value);
-      var end = new Date(document.getElementById("endDate").value);
-
-      if (isNaN(start) || isNaN(end)) {
-        document.getElementById("result").innerText = "Please select both dates.";
-        return;
-      }
-
-      var diffTime = Math.abs(end - start);
-      var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-      document.getElementById("result").innerText =
-        "Difference: " + diffDays + " day(s)";
-    }
-  </script>
-
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="." class="reload">Reload</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script src="_framework/blazor.webassembly.66stpp682q.js"></script>
 </body>
+
 </html>
